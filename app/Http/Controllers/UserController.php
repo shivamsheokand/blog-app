@@ -26,7 +26,7 @@ class UserController extends Controller
             $req->session()->put('email',$req->email);
             $req->session()->put('all',$req->input());
             return redirect('home');
-            return ["sucess"=>true,"message"=>"user regster Sucess","resu;t"=>$result];
+            return ["sucess"=>true,"message"=>"user regster Sucess","result"=>$result];
         }
         
     }
