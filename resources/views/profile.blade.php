@@ -2,6 +2,7 @@
 @section('main')
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,197 +29,229 @@
             width: 100%;
             max-width: 900px;
             margin: 50px auto;
-            padding: 40px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
-        .container:hover {
+        .profile-card:hover {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        /* Profile Header */
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1e40af;
-            margin-bottom: 10px;
-        }
-
-        .profile-header p {
-            font-size: 18px;
-            color: #6b7280;
-            font-style: italic;
-        }
-
-        /* Profile Details */
-        .profile-details {
-            margin-bottom: 40px;
-        }
-
-        .profile-details h2 {
-            font-size: 22px;
-            color: #1e40af;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .profile-details p {
-            font-size: 18px;
-            color: #374151;
-        }
-
-        .profile-details p span {
-            font-weight: bold;
-            color: #111827;
-        }
-
-        /* Blog Posts Section */
-        .blog-post {
-            margin-top: 40px;
-            border-top: 2px solid #e0e7ff;
-            padding-top: 20px;
-        }
-
-        .blog-image-wrapper {
+        /* Profile Card Styling */
+        .profile-card {
             width: 100%;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            position: relative;
+            margin: 0 auto;
         }
 
-        .blog-image-wrapper img {
+        .profile-card .header {
+            height: 150px;
+            background: linear-gradient(90deg, #ab0ef3, #7e0ce1, #ad0be8);
+            position: relative;
+        }
+
+        .profile-card .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .profile-card .profile-picture img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
         }
 
-        .blog-image-wrapper img:hover {
-            transform: scale(1.05);
+        .profile-card .content {
+            padding: 20px;
+            margin-top: 10px;
         }
 
-        .blog-post h1 {
-            font-size: 28px;
-            color: #1e40af;
-            margin: 15px 0;
+        .profile-card .content h1 {
+            font-size: 24px;
+            color: #111827;
+            margin-bottom: 5px;
         }
 
-        .blog-post h3 {
-            font-size: 20px;
-            color: #4b5563;
+        .profile-card .content p {
+            font-size: 14px;
+            color: #6b7280;
             margin-bottom: 15px;
         }
 
-        .open-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #6366f1;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .open-link:hover {
-            background-color: #4f46e5;
+        .profile-card .actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         /* Button Styling */
-        .back-btn {
-            display: inline-block;
-            padding: 15px 30px;
+        .profile-card .actions button,
+        .profile-card .actions a button {
+            flex: 1;
+            padding: 10px;
             background-color: #6366f1;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 30px;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .back-btn:hover {
+        .profile-card .actions button:hover,
+        .profile-card .actions a button:hover {
             background-color: #4f46e5;
         }
 
-        /* Responsive Design */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skills span {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+
+        .profile-card .footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer span {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Responsive Styling */
         @media (max-width: 768px) {
             .container {
-                padding: 25px;
+                margin: 20px;
+                padding: 15px;
             }
 
-            .profile-header h1 {
-                font-size: 32px;
+            .profile-card .header {
+                height: 120px;
             }
 
-            .profile-details h2 {
+            .profile-card .profile-picture {
+                width: 70px;
+                height: 70px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .profile-card .content h1 {
                 font-size: 20px;
             }
 
-            .profile-details p {
-                font-size: 16px;
+            .profile-card .content p {
+                font-size: 12px;
             }
 
-            .back-btn {
-                font-size: 16px;
-                padding: 12px 25px;
+            .profile-card .actions button {
+                padding: 8px;
+                font-size: 12px;
             }
 
-            .blog-post h1 {
-                font-size: 24px;
+            .skills span {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+
+        /* For mobile screens */
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
             }
 
-            .blog-post h3 {
+            .profile-card .header {
+                height: 100px;
+            }
+
+            .profile-card .profile-picture {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                left: 10px;
+            }
+
+            .profile-card .content h1 {
                 font-size: 18px;
             }
+
+            .profile-card .content p {
+                font-size: 10px;
+            }
+
+            .profile-card .actions button {
+                padding: 6px;
+                font-size: 10px;
+            }
+
+            .skills span {
+                padding: 3px 6px;
+                font-size: 10px;
+            }
+        }
+
+        .mb1 {
+            margin-top: 15px !important;
+            margin-bottom: 15px !important;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
-
     <div class="container">
-        <div class="profile-header">
-            <h1>User Profile</h1>
-            <p>View and manage your account information</p>
-        </div>
+        <div class="profile-card">
+            <div class="header"></div>
 
-        <!-- Profile Details -->
-        <div class="profile-details">
-            <h2>Name:</h2>
-            <p>{{ $data->name }}</p>
-
-            <h2>Email:</h2>
-            <p>{{ $data->email }}</p>
-        </div>
-
-        @foreach($my as $blog)
-        <div class="blog-post">
-            <div class="blog-image-wrapper">
-                <img src="{{ url('storage/'.$blog->img) }}" alt="Blog Image"/>
+            <!-- Profile Picture -->
+            <div class="profile-picture">
+                <img src="{{ isset($user) && $user->img ? url('storage/'.$user->img) : url('images/dummy-profile.jpg') }}" alt="Profile Picture">
             </div>
-            <a href="{{ '/blogs/'.$blog->id }}" class="open-link">Read More</a>
-            <h1>{{ $blog->title }}</h1>
-            <h3>{{ $blog->heading }}</h3>
+
+            <div class="content">
+                <h1>{{$data->name}}</h1>
+                <h6 class="mb1">{{$data->email}}</h6>
+                <p>{{ isset($user) && $user->passion ? $user->passion : "Add passion" }}</p>
+
+                <div class="actions">
+                    <a href="/editprofile"><button>Edit Profile</button></a>
+                    <a href="/myblogs"><button>My Blogs</button></a>
+                    <button>Logout</button>
+                </div>
+            </div>
+
+            <div class="footer">
+                <!-- You can add footer details here if needed -->
+            </div>
         </div>
-        @endforeach
-
-        <a href="/dashboard" class="back-btn">Back to Dashboard</a>
     </div>
-
 </body>
-</html>
 
+</html>
 @endsection

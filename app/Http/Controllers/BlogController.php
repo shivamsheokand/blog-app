@@ -57,4 +57,8 @@ class BlogController extends Controller
         $data = Blog::find($id);
         return view('showblog',['data'=>$data]);
     }
+    function myblogs(){
+        $my = Blog::where('myblogs', Session::get('email'))->get();
+        return view('myblogs',['my'=>$my]);
+    }
 }

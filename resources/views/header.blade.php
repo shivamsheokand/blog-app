@@ -72,7 +72,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('blogs') ? 'active' : '' }}" href="/blogs">Blogs</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('myblogs') ? 'active' : '' }}" href="/myblogs">MyBlogs</a>
+                    </li>
                     <!-- About Us link with active class check -->
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">About Us</a>
