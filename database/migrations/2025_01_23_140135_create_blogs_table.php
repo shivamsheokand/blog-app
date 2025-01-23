@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('heading');
-            $table->string('description');
-            $table->string('code');
+            $table->longText('description');
+            $table->longText('code');
             $table->string('author');
             $table->string('img');
+            $table->string('myblogs');
             $table->timestamps();
         });
     }
