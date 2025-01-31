@@ -79,11 +79,6 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">About Us</a>
                     </li>
-
-                    <!-- Contact Us link with active class check -->
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="/contact">Contact Us</a>
-                    </li>
                 </ul>
             </div>
         </div>

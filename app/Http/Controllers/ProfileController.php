@@ -71,4 +71,8 @@ class ProfileController extends Controller
             return redirect('editprofile')->with('error', 'Invalid image file! Please upload a valid image.');  // Return error if file is invalid
         }
     }
+    function Logout(Request $req){
+        session()->get('email');
+        return redirect('login');
+    }
 }

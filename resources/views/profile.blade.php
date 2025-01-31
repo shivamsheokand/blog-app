@@ -242,7 +242,7 @@
                 <div class="actions">
                     <a href="/editprofile"><button>Edit Profile</button></a>
                     <a href="/myblogs"><button>My Blogs</button></a>
-                    <button>Logout</button>
+                     <a href="/logout"><button>Logout</button></a>
                 </div>
             </div>
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 class BlogController extends Controller
 {
     function create(){
@@ -60,5 +62,63 @@ class BlogController extends Controller
     function myblogs(){
         $my = Blog::where('myblogs', Session::get('email'))->get();
         return view('myblogs',['my'=>$my]);
+    }
+
+    function getblogsedit(Request $req){
+        $data = Blog::get()->find($req->id);
+        return view('editmyblogs',['data'=>$data]);
+    }
+
+    // Edit blogs
+    function blogsedit(Request $req)
+{
+    // Validate the request data
+    $validatedData = $req->validate([
+        'title' => 'required|string|max:255',
+        'heading' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'code' => 'nullable|string',
+        'author' => 'required|string|max:255',
+        'img' => 'required|mimes:jpg,jpeg,png|max:2048', // validate image if provided
+    ]);
+
+    // Check if an image file was uploaded
+    if ($req->hasFile('img') && $req->file('img')->isValid()) {
+            $path = $req->file('img')->store('public');  // Store the image in 'public/blog_images' folder
+            $fileArr = explode("/", $path);
+            $fileName = $fileArr[1];  // Get the file name from the path
+
+    // Update the blog entry in the database
+
+        // return Session::get('email');
+    $update = Blog::where('id', $req->id )->update([
+        'title' => $req->title,
+        'heading' => $req->heading,
+        'description' => $req->description,
+        'code' => $req->code,
+        'author' => $req->author,
+        'img' => $fileName,
+        'myblogs' => Session::get('email'),
+    ]);
+
+    if($update){
+        return redirect('myblogs');
+    }else{
+        return "update field";
+    }
+    } else {
+            return redirect('create')->with('error', 'Invalid image file! Please upload a valid image.');  // Return error if file is invalid
+        }
+}
+
+
+// delete blogs
+    function blogsdelete($id){
+        $delete = Blog::destroy($id);
+        if($delete){
+            return redirect('myblogs');
+        }else{
+            return redirect('myblogs');
+        }
     }
 }
